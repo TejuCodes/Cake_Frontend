@@ -15,32 +15,37 @@ body {
 
 /* Style for the main container */
 .main_img {
-  background: url("../src/assets/img/Beige and Orange Organic Bakery Product Banner.png");
+  background: url("../src/assets/img/Beige and Orange Organic Bakery Product Banner.png") no-repeat center center;
   height: 550px;
-  background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Adjust for smaller screens */
+/* Medium Devices (Tablets) */
 @media (max-width: 768px) {
   .main_img {
-    background-attachment: scroll; /* Prevents issues with fixed backgrounds on mobile */
-    height: 400px; /* Reduce height for better mobile fit */
+    background-attachment: scroll;
+    height: 400px;
+    background-size: cover;
   }
 }
 
+/* Small Devices (Phones) */
 @media (max-width: 480px) {
   .main_img {
-    height: 300px; 
-    background-attachment: scroll;/* Adjust further for small screens */
-    background-size: contain; /* Ensures full image visibility */
+    height: 300px;
+    background-attachment: scroll;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
   }
 }
 
-
- 
 
 /* LOGIN AND REGISTER CSS .......................................................................................... */
 /* Centering the login form */
@@ -451,17 +456,73 @@ h2 {
 
 
 /* NAVBAR................................................................................................................. */
-
-/* Navbar Styles */
 .navbar {
-  background-color: #FFF8E1; /* Background color */
-  color: black; /* Font color */
+  background: rgba(255, 255, 255, 0.2); /* Transparent background */
+  backdrop-filter: blur(10px); /* Glass effect */
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
   padding: 10px 20px;
-  border-bottom: 1px solid #ddd;
-  position: sticky; /* Make navbar sticky */
-  top: 0; /* Stick to the top of the page */
-  z-index: 1000; /* Ensure navbar stays above other content */
-  width: 100%; /* Ensure navbar spans the full width */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.navbar-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000;
+  margin: 0;
+}
+
+/* Hamburger Icon */
+.navbar-toggler {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar-toggler-icon {
+  width: 30px;
+  height: 3px;
+  background-color: black;
+  position: relative;
+  transition: 0.3s ease-in-out;
+}
+
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  width: 30px;
+  height: 3px;
+  background-color: black;
+  position: absolute;
+  left: 0;
+  transition: 0.3s ease-in-out;
+}
+
+.navbar-toggler-icon::before {
+  top: -8px;
+}
+
+.navbar-toggler-icon::after {
+  top: 8px;
+}
+
+.navbar-toggler-icon.open {
+  background: transparent;
+}
+
+.navbar-toggler-icon.open::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.navbar-toggler-icon.open::after {
+  transform: rotate(-45deg);
+  top: 0;
 }
 
 .navbar-container {
@@ -469,186 +530,88 @@ h2 {
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: auto;
+  width: 100%;
 }
 
-.navbar-title {
-  font-size: 30px;
+.navbar-menu {
+  display: flex;
+  align-items: center;
+}
+
+.navbar-nav {
+  display: flex;
+  list-style: none;
+  padding: 0;
   margin: 0;
+  gap: 20px;
 }
 
-.navbar-toggler {
-  display: none; /* Hide toggler for desktop */
-  background: none;
+.nav-item a {
+  text-decoration: none;
+  color: black;
+  font-size: 18px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-item a:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+
+.logout-btn {
+  background-color: #a89a6b;
+  color: white;
   border: none;
+  padding: 8px 12px;
+  font-size: 16px;
+  font-weight: 500;
+  border-radius: 4px;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.navbar-toggler-icon {
-  display: block;
-  width: 25px;
-  height: 3px;
-  background-color: black;
-  position: relative;
+.logout-btn:hover {
+  background-color: #8e7b55;
 }
 
-.navbar-toggler-icon::before,
-.navbar-toggler-icon::after {
-  content: "";
-  width: 25px;
-  height: 3px;
-}
-  .navbar {
-    background-color: #FFF8E1;
-    padding: 10px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-  }
-
-  
-  .navbar-container {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-  }
-  
-  .navbar-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: black;
-  }
-  
+/* Responsive */
+@media (max-width: 768px) {
   .navbar-toggler {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-  
-  .navbar-toggler-icon {
-    width: 30px;
-    height: 3px;
-    background-color: black;
     display: block;
-    position: relative;
-    transition: 0.3s;
   }
-  
-  .navbar-toggler-icon::before,
-  .navbar-toggler-icon::after {
-    content: "";
-    width: 30px;
-    height: 3px;
-    background-color: black;
-    position: absolute;
-    left: 0;
-    transition: 0.3s;
-  }
-  
-  .navbar-toggler-icon::before {
-    top: -8px;
-  }
-  
-  .navbar-toggler-icon::after {
-    top: 8px;
-  }
-  
-  .navbar-toggler-icon.open {
-    background: transparent;
-  }
-  
-  .navbar-toggler-icon.open::before {
-    top: 0;
-    transform: rotate(45deg);
-  }
-  
-  .navbar-toggler-icon.open::after {
-    top: 0;
-    transform: rotate(-45deg);
-  }
-  
+
   .navbar-menu {
-    display: flex;
-    align-items: center;
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   }
-  
+
+  .navbar-menu.active {
+    display: flex;
+  }
+
   .navbar-nav {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 20px;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%;
   }
-  
+
   .nav-item {
-    display: flex;
-    align-items: center;
+    width: 100%;
+    text-align: center;
   }
-  
-  /* Styling for <Link> tags */
-  .nav-item a {
-    text-decoration: none;
-    color: black;
-    font-size: 18px;
-    font-weight: 500;
-    padding: 8px 12px;
-    border-radius: 4px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .nav-item a:hover {
-    background-color: #b9ab7c;
-    color: white;
-  }
-  
-  /* Styling for buttons */
-  .nav-button {
-    background-color: #b9ab7c;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    font-size: 16px;
-    font-weight: 500;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .nav-button:hover {
-    background-color: #a89a6b;
-  }
-  
-  /* Responsive Styles */
-  @media (max-width: 768px) {
-    .navbar-toggler {
-      display: block;
-    }
-  
-    .navbar-menu {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      background-color: #FFF8E1;
-      position: absolute;
-      top: 60px;
-      left: 0;
-      padding: 10px;
-      border-bottom: 1px solid #ddd;
-      transition: 0.3s ease-in-out;
-    }
-  
-    .navbar-menu.active {
-      display: flex;
-    }
-  
-    .navbar-nav {
-      flex-direction: column;
-      gap: 15px;
-    }
-  }
+}
+
   
 
 /* FEEDBACK......................................................................................................... */
@@ -743,12 +706,7 @@ p {
 
 
 /* ABOUT US CSS......................................................................................................... */
-:root {
-  --Background-main: #fce8a6;
-  --Background-secondary: #b9ab7c;
-  --button-color: #aa8741;
-  --text-color: #5a4836;
-}
+ 
 
 .about-container {
   display: flex;
@@ -853,6 +811,62 @@ mark {
 
 .about-button:hover {
   background-color: #8a6933;
+}
+/* Responsive Design */
+@media (max-width: 992px) {
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text-section {
+    padding-right: 0;
+    margin-bottom: 30px;
+  }
+
+  .about-title {
+    font-size: 28px;
+  }
+
+  .about-subtitle {
+    font-size: 22px;
+  }
+
+  .about-description,
+  .about-text,
+  .about-list li {
+    font-size: 16px;
+  }
+
+  .about-button {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 576px) {
+  .about-card {
+    padding: 20px;
+  }
+
+  .about-title {
+    font-size: 24px;
+  }
+
+  .about-subtitle {
+    font-size: 20px;
+  }
+
+  .about-description,
+  .about-text,
+  .about-list li {
+    font-size: 15px;
+  }
+
+  .about-image {
+    width: 100%;
+    height: auto;
+  }
 }
 
 

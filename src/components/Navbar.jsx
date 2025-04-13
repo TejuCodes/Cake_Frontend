@@ -24,7 +24,7 @@ const Navbar = ({ user, handleLogout }) => {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle navigation"
         >
-          <span className={`navbar-toggler-icon ${menuOpen ? "open" : ""}`}></span>
+          <span className={` ${menuOpen ? "open" : ""}`}>👇</span>
         </button>
 
         {/* Navbar Menu */}
