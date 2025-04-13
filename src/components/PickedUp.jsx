@@ -19,7 +19,7 @@ const PickedUp = () => {
     const fetchOrders = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/orders/user?useremail=${user.email}`
+          `https://cake-shop-backend-ecf3.onrender.com/api/orders/user?useremail=${user.email}`
         );
         const data = await response.json();
         if (data.success) {
