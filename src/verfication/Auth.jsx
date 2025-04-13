@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import '../Auth.css';  // Import the CSS file
 
 const Auth = ({ setUser }) => {
   const navigate = useNavigate();
@@ -64,42 +65,55 @@ const Auth = ({ setUser }) => {
   };
 
   return (
-    <div className="auth-container">
-      <h2>{isLogin ? "Login" : "Register"}</h2>
-      <form onSubmit={handleSubmit}>
-        {!isLogin && (
-          <input
-            type="text"
-            name="name"
-            placeholder="Name"
-            value={user.name}
-            onChange={handleChange}
-          />
-        )}
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={user.email}
-          onChange={handleChange}
-        />
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={user.password}
-          onChange={handleChange}
-        />
-        <button type="submit" disabled={loading}>
-          {loading ? "Please wait..." : isLogin ? "Login" : "Register"}
-        </button>
-        <p style={{ color: "red" }}>{error}</p>
-        <p onClick={toggleMode} style={{ cursor: "pointer", color: "blue" }}>
-          {isLogin
-            ? "Don't have an account? Register here."
-            : "Already have an account? Login here."}
-        </p>
-      </form>
+    <div id="mainda">
+      <div className="auth-container">
+        <div className="wrapper">
+          <h2>{isLogin ? "Login" : "Register"}</h2>
+          <form onSubmit={handleSubmit}>
+            {!isLogin && (
+              <div className="input-field">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  value={user.name}
+                  onChange={handleChange}
+                />
+                <label>Name</label>
+              </div>
+            )}
+            <div className="input-field">
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                value={user.email}
+                onChange={handleChange}
+              />
+              <label>Email</label>
+            </div>
+            <div className="input-field">
+              <input
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={user.password}
+                onChange={handleChange}
+              />
+              <label>Password</label>
+            </div>
+            <button type="submit" disabled={loading}>
+              {loading ? "Please wait..." : isLogin ? "Login" : "Register"}
+            </button>
+            <p className="error-message">{error}</p>
+            <p onClick={toggleMode} className="auth-toggle">
+              {isLogin
+                ? "Don't have an account? Register here."
+                : "Already have an account? Login here."}
+            </p>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };
