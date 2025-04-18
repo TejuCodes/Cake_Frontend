@@ -3,12 +3,11 @@ import React, { useState, useEffect } from "react";
 import Auth from "../src/verfication/Auth.jsx";
 import Navbar from "../src/components/Navbar";
 import Home from "./Home";
-import Order from "../src/components/Order";
 import Cake from "../src/components/Cakes";
 import About from "../src/components/About";
-import Payments from "../src/components/Payments .jsx";
-import Success from "../src/components/Success.jsx";
 import PickedUp from "../src/components/PickedUp.jsx";
+import Cart from "./components/Cart.jsx";
+import OrderConfirmation from "./components/OrderConfirmation.jsX";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -41,37 +40,28 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route
           path="/pickedup"
-          element={
-            <ProtectedUserRoute>
+          element={<ProtectedUserRoute>
               <PickedUp />
             </ProtectedUserRoute>
           }
         />
-        <Route
-          path="/order"
+                <Route
+          path="/cart"
           element={
             <ProtectedUserRoute>
-              <Order />
+              <Cart />
             </ProtectedUserRoute>
           }
         />
-        <Route
-          path="/payments"
+                  <Route
+          path="/orderconfirmation"
           element={
             <ProtectedUserRoute>
-              <Payments />
+              <OrderConfirmation/>
             </ProtectedUserRoute>
           }
         />
-        <Route
-          path="/success"
-          element={
-            <ProtectedUserRoute>
-              <Success />
-            </ProtectedUserRoute>
-          }
-        />
-        <Route path="*" element={<Navigate to="/" />} />
+        <Route path="*" element={<Navigate to="/home" />} />
       </Routes>
     </Router>
   );
