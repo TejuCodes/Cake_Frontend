@@ -24,7 +24,7 @@ const Navbar = ({ user, handleLogout }) => {
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle navigation"
         >
-          <span className={`navbar-toggler-icon ${menuOpen ? "open" : ""}`}></span>
+          <span className={` ${menuOpen ? "open" : ""}`}>👇</span>
         </button>
 
         {/* Navbar Menu */}
@@ -35,14 +35,12 @@ const Navbar = ({ user, handleLogout }) => {
                 <div>
                   <li className="nav-item"><Link className="nav-link" to="/home">Home</Link></li>
                 </div>
+                
                 <div>
                   <li className="nav-item"><Link className="nav-link" to="/about">About Us</Link></li>
                 </div>
                 <div>
                   <li className="nav-item"><Link className="nav-link" to="/pickedup">Orders</Link></li>
-                </div>
-                <div>
-                  <li className="nav-item"><Link className="nav-link" to="/cart"> Cart</Link></li>
                 </div>
                 <div>
                   <li className="nav-item">

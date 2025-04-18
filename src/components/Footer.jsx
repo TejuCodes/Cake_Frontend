@@ -14,12 +14,16 @@ const Footer = () => {
           </div>
 
           {/* Contact Section */}
-          <div className="footer-contact" style={{textAlign:"center"}}>
+          <div className="footer-contact">
             <h5>Contact Us</h5>
-            <p><i className="fas fa-map-marker-alt"></i> 11th cross thillai nagar</p>
+            <p><i className="fas fa-map-marker-alt"></i> 11th cross thillai nagar , tichy </p>
             <p><i className="fas fa-phone"></i> +91 779550063</p>
             <p><i className="fas fa-envelope"></i> info@cakeA2C.com</p>
-            
+            <div className="footer-social">
+              <a href="#" className="social-icon"><i className="fab fa-facebook"></i></a>
+              <a href="#" className="social-icon"><i className="fab fa-twitter"></i></a>
+              <a href="#" className="social-icon"><i className="fab fa-linkedin"></i></a>
+            </div>
           </div>
 
           {/* Google Map Section */}
