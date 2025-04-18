@@ -6,8 +6,8 @@ import Home from "./Home";
 import Cake from "../src/components/Cakes";
 import About from "../src/components/About";
 import PickedUp from "../src/components/PickedUp.jsx";
-import Cart from "./components/Cart.jsx";
-import OrderConfirmation from "./components/OrderConfirmation.jsX";
+import Cart from "../src/components/Cart.jsx";
+import OrderConfirmation from "../src/components/OrderConfirmation.jsX";
 
 function App() {
   const [user, setUser] = useState(null);
